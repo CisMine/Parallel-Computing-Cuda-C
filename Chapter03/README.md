@@ -13,7 +13,7 @@ Before explaining the concepts of “PHYSICAL” and “LOGICAL,” let’s go t
 
 **Example:** A school has multiple classrooms, and each classroom contains several students (the number of classrooms and students per classroom varies depending on different schools, considering various factors, but money is one of the most important). Next, we have a mountain of tasks (the number of tasks is unknown — I will explain this clearly in the following section) that needs to be distributed among the students for processing, and we must adhere to the following **RULES:**
 
-- Each classroom can handle a maximum of 1024 tasks.
+- Each classroom can handle a **maximum of 1024 tasks.**
 - At any given time, within a classroom, (32 * the number of warps) tasks will be executed (I will explain what a warp is in the following section, and the number of warps will depend on the computer architecture). Therefore, if we have 5 classrooms, there will be (32 * the number of warps * 5) tasks executed. For N classrooms, there will be (32 * the number of warps * N) tasks executed.
 
 **To summarize, “PHYSICAL” can be understood that being observable, having a fixed quantity, and in this example, it refers to the students. On the other hand, “LOGICAL” refers to that cannot be directly observed but can be imagined or conceptualized, with an unspecified quantity. In this case, it represents the tasks.**
@@ -29,7 +29,7 @@ Before explaining the concepts of “PHYSICAL” and “LOGICAL,” let’s go t
 
 In the given picture, we can see that there are 16 SMs, and each SM contains 32 cores. So, what are SM and cores?
 
-**Streaming Processors**(SPs or cores). The SPs are the main processing units on the GPU and are capable of executing computations concurrently on multiple data elements. You can think of SPs as individual students (1 student being 1 SP). The more SPs (students) we have, the greater the number of tasks that can be processed concurrently.
+**Streaming Processors**(SPs or cores). The SPs are the main processing units on the GPU and are capable of executing computations concurrently on multiple data elements. You can think of SPs as individual students (1 student being 1 SP). **The more SPs (students) we have, the greater the number of tasks that can be processed concurrently.**
 
 **Streaming Multiprocessor**(SM or multiprocessor ) is a collection or grouping of SPs. It can be understood as a class or classroom that accommodates multiple SPs. The SM acts as a higher-level unit that manages and coordinates the execution of tasks across the SPs within it.
 
@@ -71,9 +71,9 @@ To summarize, a thread represents a single task or job, while a block is a group
 
 The numbers (0,0) and (0,1) serve as indices to determine the position of a block and a thread, similar to a matrix. For example, a[1][2]. However, the indexing mechanism here has a slight difference, which I will explain in more detail in subsequent discussions.
 
-You might wonder why we divide the threads into separate blocks instead of having one large block for simplicity. If we did that, we would violate RULE 1, which states that each classroom can handle a maximum of 1024 tasks. Hence, we need to divide the threads (i.e., the number of tasks) into smaller blocks.
+You might wonder why we divide the threads into separate blocks instead of having one large block for simplicity. If we did that, we would **violate RULE 1, which states that each classroom can handle a maximum of 1024 tasks.** Hence, we need to divide the threads (i.e., the number of tasks) into smaller blocks.
 
-One significant advantage of dividing threads into blocks is related to RULE 2: if we have 1024 threads, we only need one block. However, at any given time, it can only process (32 * 1) tasks (assuming the number of warps is 1). Thus, we have to wait for it to finish processing the first 32 tasks before moving on to the next 32 tasks, and this process continues sequentially.
+One significant advantage of dividing threads into blocks is related to **RULE 2:** if we have 1024 threads, we only need one block. However, at any given time, it can only process (32 * 1) tasks (assuming the number of warps is 1). Thus, we have to wait for it to finish processing the first 32 tasks before moving on to the next 32 tasks, and this process continues sequentially.
 
 If we divide the threads into 32 blocks, with each block containing 32 threads (32 * 32 = 1024), then at any given time, it can process all 1024 threads without waiting for sequential execution.
 
@@ -87,14 +87,14 @@ If we divide the threads into 32 blocks, with each block containing 32 threads (
 
 SM(s) are the classrooms, 1 SP is a student, 1 Thread is a task, and Block is a collection of tasks. You can imagine a block as a box containing the tasks that need to be processed. Each SM processes a certain number of blocks (depending on the data distribution) — 1 SP can handle more than 1 thread (1 student can perform multiple tasks).
 
-Now, we encounter the question of how to distribute the tasks (blocks) among the classrooms (SMs) since SMs and Blocks are two separate concepts (physical and logical) that cannot directly interact. We need an intermediary called WARP to handle this distribution. So, what is a warp, and what is the significance of the number 32?
+Now, we encounter the question of how to distribute the tasks (blocks) among the classrooms (SMs) since SMs and Blocks are two separate concepts (physical and logical) that cannot directly interact. We need an intermediary called **WARP** to handle this distribution. So, what is a warp, and what is the significance of the number 32?
 
 
 <p align="center">
  <h1 align="center">WARP: both physical and logical </h1>
 </p>
 
-A warp refers to a group of threads that are executed together in parallel. In most GPU architectures, a warp typically consists of 32 threads. The GPU processes instructions in a SIMD (Single Instruction, Multiple Data) fashion, where a single instruction is executed on multiple data elements simultaneously within a warp. This means that all 32 threads within a warp execute the same instruction but operate on different data.
+**A warp** refers to a group of threads that are executed together in parallel. In most GPU architectures, a warp typically consists of 32 threads. The GPU processes instructions in a SIMD (Single Instruction, Multiple Data) fashion, where a single instruction is executed on multiple data elements simultaneously within a warp. This means that all 32 threads within a warp execute the same instruction but operate on different data.
 
 The number 32 is significant because it represents the size of a warp in most GPU architectures. It determines how many threads are processed together in a parallel execution unit. By having multiple warps executing in parallel, the GPU can achieve high throughput and efficient utilization of its processing resources.
 
