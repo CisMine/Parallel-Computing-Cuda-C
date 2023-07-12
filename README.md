@@ -14,7 +14,7 @@ CUDA-C is an extension of the C programming language that allows developers to w
 CUDA-C allows you to write parallel code using the CUDA programming model, which includes defining kernels (functions that execute on the GPU) and managing data transfers between the CPU and GPU. By writing CUDA-C code, you can achieve significant speedups for computationally intensive tasks compared to running the same code on the CPU alone.
 
 ## Why we need Cuda-C
-![image](https://github.com/CisMine/Parallel-Computing-Cuda-C/assets/122800932/89cde361-0d24-4425-bfe8-4d3f26f9b26e)
+![image](https://github.com/CisMine/Parallel-Computing-Cuda-C/assets/122800932/281ef415-60ad-4a82-ba74-b996fd1822cc)
 
 
 
