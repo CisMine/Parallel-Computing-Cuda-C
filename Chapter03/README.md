@@ -14,7 +14,7 @@ Before explaining the concepts of “PHYSICAL” and “LOGICAL,” let’s go t
 **Example:** A school has multiple classrooms, and each classroom contains several students (the number of classrooms and students per classroom varies depending on different schools, considering various factors, but money is one of the most important). Next, we have a mountain of tasks (the number of tasks is unknown — I will explain this clearly in the following section) that needs to be distributed among the students for processing, and we must adhere to the following **RULES:**
 
 - Each classroom can handle a **maximum of 1024 tasks.**
-- At any given time, within a classroom, (32 * the number of warps) tasks will be executed (I will explain what a warp is in the following section, and the number of warps will depend on the computer architecture). Therefore, if we have 5 classrooms, there will be (32 * the number of warps * 5) tasks executed. For N classrooms, there will be (32 * the number of warps * N) tasks executed.
+- At any given time, within a classroom, **(32 * the number of warps) tasks** will be executed (I will explain what a warp is in the following section, and the number of warps will depend on the computer architecture). Therefore, if we have 5 classrooms, there will be (32 * the number of warps * 5) tasks executed. For N classrooms, there will be **(32 * the number of warps * N) tasks** executed.
 
 **To summarize, “PHYSICAL” can be understood that being observable, having a fixed quantity, and in this example, it refers to the students. On the other hand, “LOGICAL” refers to that cannot be directly observed but can be imagined or conceptualized, with an unspecified quantity. In this case, it represents the tasks.**
 
