@@ -109,7 +109,7 @@ The reason why a warp can only distribute a maximum of 32 threads is due to the 
 **To summarize:**
 - Warp (Physical): Represents the leaders who lead the students in their group. In other words, warps control the SPs in task processing, where each SP is assigned a specific task.
 - Warp (Logical): Represents the control over the number of threads (tasks).
-- 
+  
 One important note is that while we use the analogy of warps as group leaders, they are not counted as individual members within the classroom. For example, if a classroom has 50 students and 5 leaders, the number of SPs (students) is still 50, not 55.
 
 
