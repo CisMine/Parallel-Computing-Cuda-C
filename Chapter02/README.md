@@ -9,7 +9,7 @@ And please note that this example will be referred to quite often in parallel pr
  <h1 align="center">Read-Write data </h1>
 </p>
 
-Example: Assuming you have 1024 cookies and there are 32 children waiting in line to receive a cookie, there are two ways you can distribute the cookies.
+Example: Assuming you have 1024 cookies and there are 32 children waiting in line to receive cookies, there are two ways you can distribute the cookies.
 
 <p align="center">
   <img src="https://github.com/CisMine/Parallel-Computing-Cuda-C/assets/122800932/510ef1d3-ec65-4637-bab4-12d4ffa5bc75" />
@@ -46,7 +46,7 @@ there are two important points about how computers handle data that are often ov
 ## Analyze the 1st method
 In the given example, when the first child comes up to receive a cookie, he has to take it to a different place before he can sit down and eats it. After finishing the first cookie, he returns to receive the second cookie and repeats the process. This means that each child must consume their cookies one at a time, rather than eating all 32 cookies simultaneously.
 
-This process repeats 32 times, and during this time, the remaining 31 children have to wait for their turn. You can imagine that the 32nd child has to wait for a certain duration until it’s his turn to receive and eat his cookie.
+This process repeats 32 times, and during this time, the remaining 31 children have to wait for their turn. You can imagine that the 32nd child has to wait for a certain duration until it’s his turn to receive and eat his cookies.
 
 Another drawback of Method 1 is that the computer needs to perform an additional calculation to determine how many cookies to distribute to each child. In this case, the calculation is not very complex, but it can pose a problem when the number of cookies is not evenly divisible by the number of children.
 
