@@ -179,7 +179,7 @@ So here, we create a kernel function to print "hello world" (which is executed b
 
 - Since the CPU and GPU are separate components with different processing speeds, we need synchronization between the two components. Hence, NVIDIA introduced **cudaDeviceSynchronize()**, which is a synchronization function. It ensures that all preceding computational tasks on the GPU are completed before the program proceeds to execute subsequent tasks on the CPU.
 
-# Exercise
+# Exercises
 1) You can try creating **__ _device_ __ functions** and calling them from **__ _global_ __ void**, and then call **__ _global_ __ void** from a **__ _host_ __** function and call that **__ _host_ __** function in the main function. Additionally, you can experiment with changing the order of the function calls to observe their impact. For example, try calling **__ _global_ __ void** inside **__ _device_ __**.
 
 ```sh
