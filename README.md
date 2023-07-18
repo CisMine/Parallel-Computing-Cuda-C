@@ -52,7 +52,7 @@ Following these steps in NIVIDA to install [Cuda Toolkit](https://developer.nvid
 - [Chapter02: How the way a computer works](https://github.com/CisMine/Parallel-Computing-Cuda-C/tree/main/Chapter02)
 
 - [Chapter03: Terminology in parallel programming](https://github.com/CisMine/Parallel-Computing-Cuda-C/tree/main/Chapter03)
-- [Chapter)4: Hello world Cuda-C](https://github.com/CisMine/Parallel-Computing-Cuda-C/tree/main/Chapter04)
+- [Chapter04: Hello world Cuda-C](https://github.com/CisMine/Parallel-Computing-Cuda-C/tree/main/Chapter04)
 
 
 <p align="center">
