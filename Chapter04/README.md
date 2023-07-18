@@ -125,9 +125,9 @@ return x + y ;                         a = x + y ;
 
 Here, we have two functions: **add** and **kernelAdd.**
 
-- add: It is called and executed on the CPU, meaning the calculation x + y will be performed by a CPU core.
+1) add: It is called and executed on the CPU, meaning the calculation x + y will be performed by a CPU core.
 
-- kernelAdd: It is called by the CPU but executed on the GPU, meaning the calculation x + y will be performed by a GPU core.
+2) kernelAdd: It is called by the CPU but executed on the GPU, meaning the calculation x + y will be performed by a GPU core.
 
 
 - **__ _device_ __ <datatype<datatype>>:** It represents a function that is **called by the device (GPU) and executed on the device.** In simple terms, **__ _global_ __ void** can be thought of as the main function on the GPU, while **__ _device_ __ <datatype<datatype>>** is a subsidiary function. These subsidiary functions are often created and called by the main function, which is why device functions are called and executed by the GPU.
