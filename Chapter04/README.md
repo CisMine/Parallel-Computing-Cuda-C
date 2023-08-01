@@ -225,5 +225,5 @@ int main()
 Both approaches will output "hello world" ten times, but what is the difference?
 
 Here are two hints:
-- It is related to SIMD so What is SIMD?
+- It is related to SIMT so What is SIMT?
 - I mentioned in [chapter03](https://github.com/CisMine/Parallel-Computing-Cuda-C/edit/main/Chapter03/README.md)
