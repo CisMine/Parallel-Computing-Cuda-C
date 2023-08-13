@@ -127,7 +127,7 @@ SIMT: From the SIMT perspective, each vector containing N elements becomes **N-i
 
 ## Analyzing the Question
 
-Our task is to **print "hello world" 10 times**, and since it's **SIMT, We will manually allocate threads** for this printing operation. Here, I distribute threads into two types: **<<<1,10>>>** and **<<<2,5>>>**. Since there are **only 10 threads, these two methods are equivalent.** However, if the task were to **print "hello world" 64 times** and is represented as **<<<1,64>>>** and **<<<2,32>>>**, there would be a difference (because at each moment within a block, only 32 warps are executed). Therefore, for <<<1,64>>>, it would take 2 time units to complete the printing of "hello world" 64 times, whereas for <<<2,32>>>, it would only take 1 time unit to complete.
+Our task is to **print "hello world" 10 times**, and since it's **SIMT, We will manually allocate threads** for this printing operation. Here, I distribute threads into two types: **<<<1,10>>>** and **<<<2,5>>>**. Since there are **only 10 threads, these two methods are equivalent.** However, if the task were to **print "hello world" 64 times** and is represented as **<<<1,64>>>** and **<<<2,32>>>**, there would be **a difference** (because at each moment within a block, only 32 warps are executed). Therefore, for **<<<1,64>>>**, it would take 2-time units to complete the printing of "hello world" 64 times, whereas for **<<<2,32>>>**, it would only take 1-time unit to complete.
 
 I provided a more detailed explanation in the [chapter03](https://github.com/CisMine/Parallel-Computing-Cuda-C/tree/main/Chapter03) section under the RULES part
 
