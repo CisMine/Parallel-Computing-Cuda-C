@@ -72,6 +72,5 @@ In addition to the code examples, this repository provides a curated list of res
  - [Cuda training series 2022-2023 in youtube](https://www.youtube.com/playlist?list=PL6RdenZrxrw-zNX7uuGppWETdxt_JxdMj)
  - [Programming Heterogeneous Computing Systems with GPUs 2023 in youtube](https://www.youtube.com/playlist?list=PL5Q2soXY2Zi-qSKahS4ofaEwYl7_qp9mw)
  - [Cuda Thread Indexing cheatsheet](https://cs.calvin.edu/courses/cs/374/CUDA/CUDA-Thread-Indexing-Cheatsheet.pdf)
- - [Nsight Systems v2023.3.1 Guide](https://docs.nvidia.com/nsight-systems/UserGuide/index.html)
- - [Nsight Compute v2023.2.1 Guide](https://docs.nvidia.com/nsight-compute/NsightCompute/index.html)
+
 
