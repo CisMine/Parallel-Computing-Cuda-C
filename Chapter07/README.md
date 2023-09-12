@@ -71,15 +71,16 @@ h_: represents values on the host.
 d_: represents values on the device.
 
 The symbols h_ and d_ are commonly used in CUDA guides and documents, so I will use them here to make them familiar to everyone.
+```
 
 ```sh
 #include <stdio.h>
 #include <stdlib.h>
 
-// Kích thước của vector
+// Size of the vector
 #define N 100
 
-// Kernel CUDA để cộng hai vector
+// CUDA kernel to add two vectors
 __global__ void vectorAdd(int *a, int *b, int *c) {
     int tid = blockIdx.x * blockDim.x + threadIdx.x;
     if (tid < N) {
@@ -88,43 +89,41 @@ __global__ void vectorAdd(int *a, int *b, int *c) {
 }
 
 int main() {
-    int *h_a, *h_b, *h_c; // Vector trên CPU
-    int *d_a, *d_b, *d_c; // Vector trên GPU
+    int *h_a, *h_b, *h_c; // Host vectors
+    int *d_a, *d_b, *d_c; // Device vectors
 
-    // Khởi tạo vector trên CPU
+    // Initialize host vectors
     h_a = (int *)malloc(N * sizeof(int));
     h_b = (int *)malloc(N * sizeof(int));
     h_c = (int *)malloc(N * sizeof(int));
 
-    // Khởi tạo vector ngẫu nhiên
+    // Initialize host vectors with random values
     for (int i = 0; i < N; i++) {
         h_a[i] = rand() % 10;
         h_b[i] = rand() % 10;
     }
 
-    // Khởi tạo vector trên GPU
+    // Allocate device memory for vectors
     cudaMalloc((void **)&d_a, N * sizeof(int));
     cudaMalloc((void **)&d_b, N * sizeof(int));
     cudaMalloc((void **)&d_c, N * sizeof(int));
 
-    // Sao chép dữ liệu từ CPU sang GPU
+    // Copy data from CPU to GPU
     cudaMemcpy(d_a, h_a, N * sizeof(int), cudaMemcpyHostToDevice);
     cudaMemcpy(d_b, h_b, N * sizeof(int), cudaMemcpyHostToDevice);
 
-  
-
-    // Gọi kernel CUDA để thực hiện phép cộng
+    // Call the CUDA kernel to perform vector addition
     vectorAdd<<<2, 50>>>(d_a, d_b, d_c);
 
-    // Sao chép kết quả từ GPU sang CPU
+    // Copy the result from GPU to CPU
     cudaMemcpy(h_c, d_c, N * sizeof(int), cudaMemcpyDeviceToHost);
 
-    // In kết quả
+    // Print the result
     for (int i = 0; i < N; i++) {
-    printf("h_a[%d] %d + h_b[%d] %d = %d\n", i, h_a[i], i, h_b[i], h_c[i] );
-}
+        printf("h_a[%d] %d + h_b[%d] %d = %d\n", i, h_a[i], i, h_b[i], h_c[i]);
+    }
 
-    // Giải phóng bộ nhớ
+    // Free memory
     free(h_a);
     free(h_b);
     free(h_c);
@@ -133,6 +132,7 @@ int main() {
     cudaFree(d_c);
 
     return 0;
+}
 }
 
 ```
@@ -250,54 +250,54 @@ Constant memory is read-only and is used to store constant values. The example c
 ```sh
 #include <stdio.h>
 
-__constant__ int constantData[2]; // Khai báo mảng Constant memory
+__constant__ int constantData[2]; // Declaration of Constant memory array
 
 __global__ void kernel(int *d_x, int *d_y, int N) {
     int idx = blockIdx.x * blockDim.x + threadIdx.x;
     
     if (idx < N) {
         int x = d_x[idx];
-        int a = constantData[0]; // Lấy giá trị 3 từ Constant memory
-        int b = constantData[1]; // Lấy giá trị 5 từ Constant memory
+        int a = constantData[0]; // Retrieve the value 3 from Constant memory
+        int b = constantData[1]; // Retrieve the value 5 from Constant memory
         d_y[idx] = a * x + b;
     }
 }
 
 int main() {
-    const int N = 10; // Số phần tử mảng
-    int h_x[N];    // Mảng đầu vào trên host
-    int h_y[N];    // Mảng kết quả trên host
-    int *d_x, *d_y; // Mảng trên device
+    const int N = 10; // Number of array elements
+    int h_x[N];    // Input array on the host
+    int h_y[N];    // Result array on the host
+    int *d_x, *d_y; // Arrays on the device
 
-    // Khởi tạo dữ liệu trên host
+    // Initialize data on the host
     for (int i = 0; i < N; i++) {
         h_x[i] = i;
     }
 
-    // Khởi tạo vector trên GPU
+    // Allocate memory for arrays on the GPU
     cudaMalloc((void**)&d_x, N * sizeof(int));
     cudaMalloc((void**)&d_y, N * sizeof(int));
 
-    // Sao chép dữ liệu từ host vào device
+    // Copy data from host to device
     cudaMemcpy(d_x, h_x, N * sizeof(int), cudaMemcpyHostToDevice);
 
-    // Sao chép giá trị 3 và 5 vào Constant memory
+    // Copy the values 3 and 5 into Constant memory
     int constantValues[2] = {3, 5};
     cudaMemcpyToSymbol(constantData, constantValues, 2 * sizeof(int));
 
-    // Gọi kernel với 1 block và N threads
+    // Launch the kernel with 1 block and N threads
     kernel<<<1, N>>>(d_x, d_y, N);
     cudaDeviceSynchronize();
 
-    // Sao chép kết quả từ device về host
+    // Copy the results from the device to the host
     cudaMemcpy(h_y, d_y, N * sizeof(int), cudaMemcpyDeviceToHost);
 
-    // In kết quả
+    // Print the results
     for (int i = 0; i < N; i++) {
         printf("3(x= %d) + 5 => y = %d\n", h_x[i], h_y[i]);
     }
 
-    // Giải phóng bộ nhớ trên device
+    // Free memory on the device
     cudaFree(d_x);
     cudaFree(d_y);
 
