@@ -133,8 +133,6 @@ int main() {
 
     return 0;
 }
-}
-
 ```
 <p align="center">
  <h1 align="center">Analyze the kernel</h1>
