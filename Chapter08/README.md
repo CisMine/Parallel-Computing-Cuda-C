@@ -3,7 +3,7 @@ To answer the question in [Chapter07](https://github.com/CisMine/Parallel-Comput
 
 
 <p align="center">
- <h1 align="center">synchronization and asynchronization </h1>
+ <h1 align="center">Synchronization and Asynchronization </h1>
 </p>
 
 Before explaining these two concepts, let's go through an example to help you visualize better.
