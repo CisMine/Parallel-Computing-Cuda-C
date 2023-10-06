@@ -56,6 +56,7 @@ Following these steps in NIVIDA to install [Cuda Toolkit](https://developer.nvid
 - [Chapter05: The operational mechanism of CPU-GPU](https://github.com/CisMine/Parallel-Computing-Cuda-C/tree/main/Chapter05)
 - [Chapter06: Memory Types in GPU](https://github.com/CisMine/Parallel-Computing-Cuda-C/tree/main/Chapter06)
 - [Chapter07: Using GPU memory](https://github.com/CisMine/Parallel-Computing-Cuda-C/tree/main/Chapter07)
+- [Chapter08: Synchronization and Asynchronization](https://github.com/CisMine/Parallel-Computing-Cuda-C/tree/main/Chapter08)
 
 
 
