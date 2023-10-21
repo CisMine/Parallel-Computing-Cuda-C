@@ -116,9 +116,9 @@ For example, in the two code snippets mentioned above, they are the same. If the
 
 
 ```sh
-int add(int x, int y)            __global__ void kernelAdd(int x, int y)    
+int add(int x, int y)            __global__ void kernelAdd(int a, int x, int y)    
 {                                   {
-                                       int a = 0 ;
+                                      
 return x + y ;                         a = x + y ;
 }                                   }
 ```
