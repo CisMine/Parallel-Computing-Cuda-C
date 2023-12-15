@@ -251,3 +251,10 @@ some special functions that can be used to optimize memory management in CUDA, p
   - cudaMemAdviseUnsetAccessedBy: Indicates that the previous accessed-by advice no longer applies.
 
 - cudaMemPrefetchAsync: This function is used to prefetch data from a memory region on the host or device to another region on the device or host. It allows explicit control of the data prefetching process to optimize performance and efficient data access on the GPU.
+
+
+<p align="center">
+ <h1 align="center">Exercise </h1>
+</p>
+
+write a simple code to demonstrate Unified memory can be accessed by both GPU and CPU
