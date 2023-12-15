@@ -22,7 +22,7 @@ As I have mentioned, when talking about memory, there are always two concepts: P
 Zero Copy: This is a data transfer optimization method, where data is AUTOMATICALLY transferred directly from the memory of one device (e.g., CPU) to another device (e.g., GPU) without going through an intermediate step (like a buffer). This significantly reduces the time and resources needed for data copying, thereby improving performance.
 
 <p align="center">
-  <img src="https://github.com/CisMine/Parallel-Computing-Cuda-C/assets/122800932/2e187394-6914-46c3-a07f-2c27c5b80a31" />
+  <img src="https://github.com/CisMine/Parallel-Computing-Cuda-C/assets/122800932/8f533138-a836-4790-bbf7-e913b6a33ade" />
 </p>
 
 <p align="center">
