@@ -59,6 +59,7 @@ Following these steps in NIVIDA to install [Cuda Toolkit](https://developer.nvid
 - [Chapter08: Synchronization and Asynchronization](https://github.com/CisMine/Parallel-Computing-Cuda-C/tree/main/Chapter08)
 - [Chapter09: Unified memory](https://github.com/CisMine/Parallel-Computing-Cuda-C/tree/main/Chapter09)
 - [Chapter10: Pinned memory](https://github.com/CisMine/Parallel-Computing-Cuda-C/tree/main/Chapter10)
+- [Chapter11: Streaming](https://github.com/CisMine/Parallel-Computing-Cuda-C/tree/main/Chapter11)
 
 
 
