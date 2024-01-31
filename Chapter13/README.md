@@ -1,6 +1,6 @@
 
 
-In this article, I will introduce to you a very useful built-in function in CUDA. It's important to read previous articles about [Data Hazard]() and [Synchronization - Asynchronization]() before diving into this one.
+In this article, I will introduce to you a very useful built-in function in CUDA. It's important to read previous articles about [Data Hazard](https://github.com/CisMine/Parallel-Computing-Cuda-C/tree/main/Chapter12) and [Synchronization - Asynchronization](https://github.com/CisMine/Parallel-Computing-Cuda-C/tree/main/Chapter08) before diving into this one.
 
 
 <p align="center">
