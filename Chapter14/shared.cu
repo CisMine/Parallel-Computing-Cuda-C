@@ -1,3 +1,5 @@
+#include <stdio.h>
+
 __global__ void staticReverse(int *d, int n)
 {
   __shared__ int s[64];
