@@ -62,6 +62,7 @@ Following these steps in NIVIDA to install [Cuda Toolkit](https://developer.nvid
 - [Chapter11: Streaming](https://github.com/CisMine/Parallel-Computing-Cuda-C/tree/main/Chapter11)
 - [Chapter12: Data Hazard](https://github.com/CisMine/Parallel-Computing-Cuda-C/tree/main/Chapter12)
 - [Chapter13: Atomic Function](https://github.com/CisMine/Parallel-Computing-Cuda-C/tree/main/Chapter13)
+- [Chapter14: Shared memory](https://github.com/CisMine/Parallel-Computing-Cuda-C/tree/main/Chapter14)
 
 
 
